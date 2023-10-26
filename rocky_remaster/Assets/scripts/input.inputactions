@@ -1,0 +1,45 @@
+{
+    "name": "input",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "8b908f14-f273-4fc5-9c3b-c0b68bb8c976",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "faf62a0d-dffe-4827-8e78-abdcccd40f60",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9d533d1c-cbf5-4b2b-950b-65f353a7d52f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74684d61-4d53-47ef-a977-42e7397a824c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
