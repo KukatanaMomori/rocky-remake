@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 0327926886e14a7429a54cb2ebfe7edd
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors: []
+  warnings:
+  - Tileset 'Tilemap' is an embedded tileset. Exported tilesets are preferred.
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 27
+  pixelsPerUnit: 24
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 634
+  tilesAsObjects: 0
+  sortingMode: 0
+  isIsometric: 0
+  customImporterClassName: 
+  internalTilesets:
+  - {instanceID: 0}
