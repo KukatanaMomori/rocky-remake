@@ -26,6 +26,8 @@ public class CharacterController2D : MonoBehaviour
     public event Action<int> onBoost;
     public int fuel_number = 20;
 
+    private Animator animator;
+
     [Header("Events")]
     [Space]
 
@@ -40,6 +42,7 @@ public class CharacterController2D : MonoBehaviour
     private void Start()
     {
         onBoost?.Invoke(fuel_number);
+        animator = GetComponent<Animator>();
     }
     private void Awake()
     {
@@ -166,11 +169,14 @@ public class CharacterController2D : MonoBehaviour
             }
             else
             {
-
                 m_Rigidbody2D.AddForce(new Vector2(-rocket_Jump.x, rocket_Jump.y));
 
             }
         }
+        if(m_Grounded) {
+            animator.SetBool("isJumping", false);
+        }
+        else { animator.SetBool("isJumping", true); }
     }
 
 

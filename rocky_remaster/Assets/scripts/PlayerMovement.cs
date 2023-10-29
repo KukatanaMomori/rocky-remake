@@ -30,11 +30,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump")) {
-            animator.SetBool("isJumping", true);
+            //animator.SetBool("isJumping", true);
             jump = true;
         }
 
-        else { animator.SetBool("isJumping", false); }
+        else {/* animator.SetBool("isJumping", false);*/ }
         if (Input.GetKeyDown(KeyCode.Space)) {
             boost = true;
             //animator.SetBool("isJumping", true);
