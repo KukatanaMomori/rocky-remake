@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +23,8 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
     private bool canBoost = false;
+    public event Action<int> onBoost;
+    public int fuel_number = 20;
 
     [Header("Events")]
     [Space]
@@ -34,6 +37,10 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+    private void Start()
+    {
+        onBoost?.Invoke(fuel_number);
+    }
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -146,8 +153,10 @@ public class CharacterController2D : MonoBehaviour
         }
             
         }
-        if (!m_Grounded && boost && canBoost)
+        if (!m_Grounded && boost && canBoost && fuel_number > 0)
         {
+            fuel_number--;
+            onBoost?.Invoke(fuel_number);
             canBoost = false;   
             m_Rigidbody2D.velocity = Vector2.zero;
             if (m_FacingRight)

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
-    private bool boost;
+    public bool boost;
     private Material material;
     private Animator animator;
     // Start is called before the first frame update
