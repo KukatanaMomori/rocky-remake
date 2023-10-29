@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349971796}
   - component: {fileID: 349971797}
+  - component: {fileID: 349971798}
   m_Layer: 0
   m_Name: TiledBackground1
   m_TagString: Untagged
@@ -207,6 +208,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &349971798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349971795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca40f219958690147a228b1e83f8f0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1651375833}
+  relativeMove: 0.02
+  lockY: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +922,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5971549591669612008, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971549591669612008, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971549591669612008, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971549591669612008, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.285
       objectReference: {fileID: 0}
@@ -945,6 +973,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5971549591669612008, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363129676267976802, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363129676267976802, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9ee4b548726e7443bc7dada70eb878e, type: 2}
     - target: {fileID: 9099264641208295686, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
       propertyPath: m_Material
       value: 
@@ -970,6 +1010,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3988887544854442403, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1592202819}
+    - targetCorrespondingSourceObject: {fileID: 3988887544854442403, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592202821}
   m_SourcePrefab: {fileID: 100100000, guid: 2e100bbb8fab3444e89df5ff22fdf015, type: 3}
 --- !u!1 &1319737639
 GameObject:
@@ -981,6 +1024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1319737640}
   - component: {fileID: 1319737641}
+  - component: {fileID: 1319737642}
   m_Layer: 0
   m_Name: TiledBackground0
   m_TagString: Untagged
@@ -1055,6 +1099,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1319737642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319737639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca40f219958690147a228b1e83f8f0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1651375833}
+  relativeMove: 0.01
+  lockY: 1
 --- !u!1 &1332523249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,9 +1234,30 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08, y: 0}
-  m_Size: {x: 1.92, y: 1.69}
+  m_Offset: {x: 0.08696349, y: 0.00418128}
+  m_Size: {x: 1.309712, y: 1.0964732}
   m_Direction: 1
+--- !u!95 &1592202821
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649696061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b45915b28661ad4aad29ca0a2e1e5d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1651375831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655666422}
   - component: {fileID: 1655666423}
+  - component: {fileID: 1655666424}
   m_Layer: 0
   m_Name: TiledBackground2
   m_TagString: Untagged
@@ -1352,6 +1433,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1655666424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655666421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca40f219958690147a228b1e83f8f0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1651375833}
+  relativeMove: 0.03
+  lockY: 1
 --- !u!1 &1826279329
 GameObject:
   m_ObjectHideFlags: 0
