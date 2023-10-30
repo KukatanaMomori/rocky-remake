@@ -12,11 +12,23 @@ public class PlayerMovement : MonoBehaviour
     public bool boost;
     private Material material;
     private Animator animator;
+    public Uncanny uncanny;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();  
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Spikes"))
+        {
+            print("muie");
+            uncanny.AddUncanny();
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update()

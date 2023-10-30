@@ -15,7 +15,6 @@ public class FuelUI : MonoBehaviour
        
     }
     
-
     private void OnBoost(int fuel_number)
     {
         //animator.SetBool("isJumping", true);
