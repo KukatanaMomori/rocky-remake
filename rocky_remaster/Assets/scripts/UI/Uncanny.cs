@@ -22,21 +22,21 @@ public class Uncanny : MonoBehaviour
         
     }
 
+    //ADDS UNCANNY
     public void AddUncanny()
     {
         uncanny_number++;
     }
 
-    // Update is called once per frame
+    //SET UNCANNY UI TEXT
     void Update()
     {
 
-            if (uncanny_number > 0)
-        {
+        if (uncanny_number > 0) {
             uncanny_text.text = "Uncanny counter: " + uncanny_number.ToString();
         }
-        if (uncanny_number > max_uncanny)
-        {
+
+        if (uncanny_number > max_uncanny) {
             uncanny_number = max_uncanny;
         }
     }

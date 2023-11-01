@@ -19,7 +19,7 @@ public class CharacterController2D : MonoBehaviour
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
-    private Rigidbody2D m_Rigidbody2D;
+    
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
     private bool canBoost = false;
@@ -27,6 +27,7 @@ public class CharacterController2D : MonoBehaviour
     public int fuel_number = 20;
 
     private Animator animator;
+    private Rigidbody2D m_Rigidbody2D;
 
     [Header("Events")]
     [Space]
@@ -39,13 +40,11 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
-    private void Start()
-    {
+    private void Start() {
         onBoost?.Invoke(fuel_number);
         animator = GetComponent<Animator>();
     }
-    private void Awake()
-    {
+    private void Awake() {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -55,18 +54,15 @@ public class CharacterController2D : MonoBehaviour
             OnCrouchEvent = new BoolEvent();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
-            {
+        for (int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].gameObject != gameObject) {
                 m_Grounded = true;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();
@@ -74,12 +70,9 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-
-    public void Move(float move, bool crouch, bool jump, bool boost)
-    {
+    public void Move(float move, bool crouch, bool jump, bool boost) {
         // If crouching, check to see if the character can stand up
-        if (!crouch)
-        {
+        if (!crouch) {
             // If the character has a ceiling preventing them from standing up, keep them crouching
             if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
             {
@@ -88,12 +81,10 @@ public class CharacterController2D : MonoBehaviour
         }
 
         //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
-        {
+        if (m_Grounded || m_AirControl) {
 
             // If crouching
-            if (crouch)
-            {
+            if (crouch){
                 if (!m_wasCrouching)
                 {
                     m_wasCrouching = true;
@@ -107,8 +98,7 @@ public class CharacterController2D : MonoBehaviour
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = false;
             }
-            else
-            {
+            else {
                 // Enable the collider when not crouching
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = true;
@@ -139,38 +129,36 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (m_Grounded && jump)
-        {
+        if (m_Grounded && jump) {
             canBoost = true;
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.velocity = Vector2.zero;
-            if (m_FacingRight)
-            {
+
+            if (m_FacingRight) {
                 m_Rigidbody2D.AddForce(new Vector2(m_JumpForceX, m_JumpForceY));
             }
-            else
-            {
+            else {
                 m_Rigidbody2D.AddForce(new Vector2(-m_JumpForceX, m_JumpForceY));
             
+            }
         }
-            
-        }
-        if (!m_Grounded && boost && canBoost && fuel_number > 0)
-        {
-            fuel_number--;
+
+        //CAN USE BOOST CHECK
+        if (!m_Grounded && boost && canBoost && fuel_number > 0) {
+            if (fuel_number > 0)
+            {
+                fuel_number--;
+            }
             onBoost?.Invoke(fuel_number);
             canBoost = false;   
             m_Rigidbody2D.velocity = Vector2.zero;
-            if (m_FacingRight)
-            {
 
+            if (m_FacingRight) {
                 m_Rigidbody2D.AddForce(new Vector2(rocket_Jump.x, rocket_Jump.y));
             }
-            else
-            {
+            else {
                 m_Rigidbody2D.AddForce(new Vector2(-rocket_Jump.x, rocket_Jump.y));
-
             }
         }
         if(m_Grounded) {
@@ -179,9 +167,16 @@ public class CharacterController2D : MonoBehaviour
         else { animator.SetBool("isJumping", true); }
     }
 
+    //UPDATE FUEL
+    public void UpdateBoost() {
+        if (fuel_number > 0) {
+            fuel_number--;
+        }
+        onBoost?.Invoke(fuel_number);
+    }
 
-    private void Flip()
-    {
+    //FLIP CAPYBARA
+    private void Flip() {
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
 

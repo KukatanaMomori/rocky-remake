@@ -2,37 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-
+public class PlayerMovement : MonoBehaviour {
+    //other scripts
     public CharacterController2D controller;
+    public Checkpoint checkpoint;
+    public Uncanny uncanny;
+
+    //vars
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
     public bool boost;
     private Material material;
     private Animator animator;
-    public Uncanny uncanny;
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Start() {
         animator = GetComponent<Animator>();  
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Spikes"))
-        {
-            print("muie");
+    //CAPYBARA DEAD
+    private void OnTriggerEnter2D(Collider2D other){
+        if (other.CompareTag("Spikes")){
             uncanny.AddUncanny();
+            controller.UpdateBoost();
+            checkpoint.GoToCheckpoint();
         }
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
+    //CAPYBARA MOVEMENT
+    void Update() {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (horizontalMove != 0f) {
             animator.SetBool("isWalking", true);
