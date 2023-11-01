@@ -4532,7 +4532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1592202818}
-  checkpoint: {fileID: 0}
   uncanny: {fileID: 1599012834}
   runSpeed: 30
   boost: 0
@@ -5504,14 +5503,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4665528869492032105, guid: 2455652e556e28f4580bd4d0c7d1a0e3, type: 3}
-      propertyPath: m_Size.x
-      value: 1.56
-      objectReference: {fileID: 0}
-    - target: {fileID: -4665528869492032105, guid: 2455652e556e28f4580bd4d0c7d1a0e3, type: 3}
-      propertyPath: m_Size.y
-      value: 1.99
-      objectReference: {fileID: 0}
     - target: {fileID: 730721719150965696, guid: 2455652e556e28f4580bd4d0c7d1a0e3, type: 3}
       propertyPath: m_Name
       value: Checkpoint

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     //other scripts
     public CharacterController2D controller;
-    public Checkpoint checkpoint;
     public Uncanny uncanny;
 
     //vars
@@ -15,8 +14,10 @@ public class PlayerMovement : MonoBehaviour {
     public bool boost;
     private Material material;
     private Animator animator;
+    Vector3 checkpoint;
 
     void Start() {
+        checkpoint = transform.position;
         animator = GetComponent<Animator>();  
     }
 
@@ -25,7 +26,11 @@ public class PlayerMovement : MonoBehaviour {
         if (other.CompareTag("Spikes")){
             uncanny.AddUncanny();
             controller.UpdateBoost();
-            checkpoint.GoToCheckpoint();
+            transform.position = checkpoint;
+        }
+        if (other.CompareTag("Checkpoint")) {
+            checkpoint = other.transform.position;
+            Destroy(other.gameObject);
         }
     }
 
