@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 checkpoint;
 
     //audio
-    AudioSource source;
+    public AudioSource source;
     public AudioClip dead;
     public AudioClip eat;
     public AudioClip walk;
@@ -41,8 +41,9 @@ public class PlayerMovement : MonoBehaviour {
         if (other.CompareTag("Spikes")){
             uncanny.AddUncanny();
             controller.UpdateBoost();
-            transform.position = checkpoint;
             source.PlayOneShot(dead);
+            transform.position = checkpoint;
+            
         }
         //teleport to checkpoint
         if (other.CompareTag("Checkpoint")) {
@@ -69,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
         weedBtn = Input.GetKey(KeyCode.E);
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (horizontalMove != 0f) {
-            source.PlayOneShot(walk);
+            //source.PlayOneShot(walk);
             animator.SetBool("isWalking", true);
         }
         else { animator.SetBool("isWalking", false);
@@ -84,11 +85,10 @@ public class PlayerMovement : MonoBehaviour {
 
         else {/* animator.SetBool("isJumping", false);*/ }
         if (Input.GetKeyDown(KeyCode.Space)) {
-            source.PlayOneShot(turbo);
             boost = true;
             //animator.SetBool("isJumping", true);
         }
-    }
+     }
     private void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump, boost);

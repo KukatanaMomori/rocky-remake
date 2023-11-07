@@ -4639,11 +4639,12 @@ MonoBehaviour:
   uncanny: {fileID: 1599012834}
   runSpeed: 30
   boost: 0
+  source: {fileID: 0}
   dead: {fileID: 8300000, guid: 6b259d5a679a3c840878e3dca92eb857, type: 3}
   eat: {fileID: 8300000, guid: 729d18930ae545442ae7f2fb6e57510d, type: 3}
   walk: {fileID: 8300000, guid: 97c5ebf8d6eb8bf47852aa2039615e3c, type: 3}
   a_jump: {fileID: 8300000, guid: dd3d73b7272a87b4d94a62d6ef5b1980, type: 3}
-  turbo: {fileID: 8300000, guid: 2de549358bb2204459a4ebb431b64a49, type: 3}
+  turbo: {fileID: 8300000, guid: 5beab2387f2d8294e8db6e7cdcfbeb74, type: 3}
 --- !u!114 &1592202818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4669,6 +4670,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 843520722}
   m_CrouchDisableCollider: {fileID: 0}
   fuel_number: 20
+  movement: {fileID: 1592202817}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []

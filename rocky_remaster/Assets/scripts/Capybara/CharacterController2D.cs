@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using static Unity.VisualScripting.Member;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class CharacterController2D : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D m_Rigidbody2D;
+
+    public PlayerMovement movement;
 
     [Header("Events")]
     [Space]
@@ -146,7 +149,12 @@ public class CharacterController2D : MonoBehaviour
 
         //CAN USE BOOST CHECK
         if (!m_Grounded && boost && canBoost && fuel_number > 0) {
-            if (fuel_number > 0)
+            if (Input.GetKey(KeyCode.Space))
+            {
+                movement.source.PlayOneShot(movement.turbo);
+            }
+
+                if (fuel_number > 0)
             {
                 fuel_number--;
             }
