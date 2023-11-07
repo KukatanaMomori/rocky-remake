@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -14,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool boost;
     private Material material;
     private Animator animator;
+    bool weedBtn;
+    bool isColliding;
     Vector3 checkpoint;
 
     void Start() {
@@ -21,21 +25,35 @@ public class PlayerMovement : MonoBehaviour {
         animator = GetComponent<Animator>();  
     }
 
-    //CAPYBARA DEAD
+    //CAPYBARA COLLIDES WITH SHIT
     private void OnTriggerEnter2D(Collider2D other){
+        //DED
         if (other.CompareTag("Spikes")){
             uncanny.AddUncanny();
             controller.UpdateBoost();
             transform.position = checkpoint;
         }
+        //teleport to checkpoint
         if (other.CompareTag("Checkpoint")) {
             checkpoint = other.transform.position;
             Destroy(other.gameObject);
         }
     }
 
+    //weed fuel
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Weed") && weedBtn)
+        {
+            controller.fuel_number += 10;
+            controller.UpdateBoost();
+            Destroy(other.gameObject);
+        }
+    }
+
     //CAPYBARA MOVEMENT
     void Update() {
+        weedBtn = Input.GetKey(KeyCode.E);
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (horizontalMove != 0f) {
             animator.SetBool("isWalking", true);

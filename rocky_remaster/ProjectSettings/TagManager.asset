@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Spikes
   - Checkpoint
+  - Weed
   layers:
   - Default
   - TransparentFX
