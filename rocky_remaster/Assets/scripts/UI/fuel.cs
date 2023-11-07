@@ -18,7 +18,7 @@ public class FuelUI : MonoBehaviour {
         //animator.SetBool("isJumping", true);
         fuel_text.text = fuel_number.ToString();
     }
-
+    
     void Update() {
             
     }

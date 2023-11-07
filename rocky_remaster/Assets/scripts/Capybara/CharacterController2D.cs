@@ -13,7 +13,8 @@ public class CharacterController2D : MonoBehaviour
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;   // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
-    [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
+    [SerializeField] private Transform m_GroundCheckLeft;
+    [SerializeField] private Transform m_GroundCheckRight;  // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
     [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
@@ -63,15 +64,32 @@ public class CharacterController2D : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheckLeft.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++) {
             if (colliders[i].gameObject != gameObject) {
                 m_Grounded = true;
                 if (!wasGrounded)
+                {
                     OnLandEvent.Invoke();
+                    return;
+                }
+            }
+        }
+        Collider2D[] colliders1 = Physics2D.OverlapCircleAll(m_GroundCheckRight.position, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < colliders1.Length; i++)
+        {
+            if (colliders1[i].gameObject != gameObject)
+            {
+                m_Grounded = true;
+                if (!wasGrounded)
+                { 
+                    OnLandEvent.Invoke();
+                    return;
+                }
             }
         }
     }
+
 
     public void Move(float move, bool crouch, bool jump, bool boost) {
         // If crouching, check to see if the character can stand up
@@ -149,11 +167,12 @@ public class CharacterController2D : MonoBehaviour
 
         //CAN USE BOOST CHECK
         if (!m_Grounded && boost && canBoost && fuel_number > 0) {
+            //boost sound
             if (Input.GetKey(KeyCode.Space))
             {
-                movement.source.PlayOneShot(movement.turbo);
+                movement.turbo.Play();
             }
-
+            //boost main
                 if (fuel_number > 0)
             {
                 fuel_number--;
