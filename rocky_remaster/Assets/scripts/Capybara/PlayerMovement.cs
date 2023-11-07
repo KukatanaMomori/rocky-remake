@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour {
     //other scripts
@@ -20,9 +21,18 @@ public class PlayerMovement : MonoBehaviour {
     bool isColliding;
     Vector3 checkpoint;
 
+    //audio
+    AudioSource source;
+    public AudioClip dead;
+    public AudioClip eat;
+    public AudioClip walk;
+    public AudioClip a_jump;
+    public AudioClip turbo;
+
     void Start() {
         checkpoint = transform.position;
         animator = GetComponent<Animator>();  
+        source = GetComponent<AudioSource>();
     }
 
     //CAPYBARA COLLIDES WITH SHIT
@@ -32,6 +42,7 @@ public class PlayerMovement : MonoBehaviour {
             uncanny.AddUncanny();
             controller.UpdateBoost();
             transform.position = checkpoint;
+            source.PlayOneShot(dead);
         }
         //teleport to checkpoint
         if (other.CompareTag("Checkpoint")) {
@@ -48,6 +59,8 @@ public class PlayerMovement : MonoBehaviour {
             controller.fuel_number += 10;
             controller.UpdateBoost();
             Destroy(other.gameObject);
+
+            source.PlayOneShot(eat);
         }
     }
 
@@ -56,6 +69,7 @@ public class PlayerMovement : MonoBehaviour {
         weedBtn = Input.GetKey(KeyCode.E);
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (horizontalMove != 0f) {
+            source.PlayOneShot(walk);
             animator.SetBool("isWalking", true);
         }
         else { animator.SetBool("isWalking", false);
@@ -63,12 +77,14 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Jump")) {
+            source.PlayOneShot(a_jump);
             //animator.SetBool("isJumping", true);
             jump = true;
         }
 
         else {/* animator.SetBool("isJumping", false);*/ }
         if (Input.GetKeyDown(KeyCode.Space)) {
+            source.PlayOneShot(turbo);
             boost = true;
             //animator.SetBool("isJumping", true);
         }
