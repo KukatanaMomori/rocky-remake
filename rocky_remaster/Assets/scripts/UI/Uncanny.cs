@@ -33,7 +33,7 @@ public class Uncanny : MonoBehaviour
     //ADDS UNCANNY
     public void AddUncanny()
     {
-        addFloat+=0.05f;
+        addFloat+=0.01f;
         Material.SetFloat("_distort", addFloat);
         uncanny_number++;
     }

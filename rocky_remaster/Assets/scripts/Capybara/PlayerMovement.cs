@@ -5,11 +5,13 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     //other scripts
     public CharacterController2D controller;
     public Uncanny uncanny;
+    public LevelManager levelManager;
 
 
     //vars
@@ -53,6 +55,14 @@ public class PlayerMovement : MonoBehaviour {
             checkpoint = other.transform.position;
             Destroy(other.gameObject);
         }
+        
+            //
+            if (other.CompareTag("Finish"))
+            {
+                SceneManager.LoadScene(levelManager.sceneName);
+
+            }
+        
     }
 
     //weed fuel
