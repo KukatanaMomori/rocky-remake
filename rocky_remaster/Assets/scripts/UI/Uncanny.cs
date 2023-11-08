@@ -8,8 +8,11 @@ using UnityEngine.UI;
 public class Uncanny : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI uncanny_text;
+    //public FullScreenPassRendererFeature distortFeature;
     public int uncanny_number;
     public int max_uncanny;
+    public Material Material;
+    private float addFloat = 1f;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,14 +20,21 @@ public class Uncanny : MonoBehaviour
        
     }
 
+    private void OnDestroy()
+    {
+        Material.SetFloat("_distort", 1);
+    }
+
     private void Start()
     {
-        
+        //Material = distortFeature.passMaterial;
     }
 
     //ADDS UNCANNY
     public void AddUncanny()
     {
+        addFloat+=0.05f;
+        Material.SetFloat("_distort", addFloat);
         uncanny_number++;
     }
 

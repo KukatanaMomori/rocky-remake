@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using static Unity.VisualScripting.Member;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -32,6 +31,8 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
 
     public PlayerMovement movement;
+    public ParticleSystem fire;
+    public ParticleSystem smoke;
 
     [Header("Events")]
     [Space]
@@ -47,6 +48,7 @@ public class CharacterController2D : MonoBehaviour
     private void Start() {
         onBoost?.Invoke(fuel_number);
         animator = GetComponent<Animator>();
+        
     }
     private void Awake() {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -171,6 +173,9 @@ public class CharacterController2D : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 movement.turbo.Play();
+                smoke.Play();
+                fire.Play();
+                
             }
             //boost main
                 if (fuel_number > 0)
