@@ -502,9 +502,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -695,9 +703,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1531,7 +1547,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.721732, y: -7.6327696, z: -10}
+  m_LocalPosition: {x: 15.720127, y: -7.6327696, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2027,9 +2043,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5318,9 +5342,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5375,9 +5407,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalScale.x
@@ -5988,9 +6028,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6293,9 +6341,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545856778595161284, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 5960933945641423853, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_Name
       value: spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130159695076100736, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9167179258175157242, guid: b07da28082361af48a703ddaa2be4ed6, type: 3}
       propertyPath: m_LocalScale.x
